@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Treats - Entretenimiento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="JS/apy.js"></script>
+  <link rel="icon" type="image/png" href="imagenes/edit 2.1..png">
+
+  <style>
+    body { padding-top: 70px; }
+    .game-box {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background: #f8f9fa;
+    }
+    button { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top bg-opacity-75">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="imagenes/edit 2.1..png" alt="logo" height="40">
+        Healthy Treats
+      </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="Quienes somos.html">Quienes somos</a></li>
+          <li class="nav-item"><a class="nav-link" href="Promociones.html">Promociones</a></li>
+          <li class="nav-item"><a class="nav-link" href="Pedidos.html">Pedidos</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">Más</a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="Testimonios.html">Testimonios</a></li>
+              <li><a class="dropdown-item active" href="Entretenimiento.html">Entretenimiento</a></li>
+              <li><a class="dropdown-item" href="Podcast.html">Podcast Informativos</a></li>
+              <li><a class="dropdown-item" href="Contactanos.html">Contáctanos</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <div class="bg-dark text-white text-center py-4">
+    <h1>Entretenimiento</h1>
+    <p>Diviértete con juegos sencillos en español 🎮</p>
+  </div>
+
+  <div class="container my-5">
+
+    <!-- Juego 1: Adivina el número -->
+    <div class="game-box">
+      <h4>🔢 Adivina el Número</h4>
+      <p>Piensa en un número del 1 al 10000, intenta adivinarlo.</p>
+      <input type="number" id="numero" class="form-control w-25" placeholder="Escribe un número">
+      <button class="btn btn-primary mt-2" onclick="adivinar()">Probar</button>
+      <p id="resultado1"></p>
+    </div>
+
+    <!-- Juego 2: Pregunta rápida -->
+    <div class="game-box">
+      <h4>❓ Pregunta Rápida</h4>
+      <p>¿Cuál es la capital de Perú?</p>
+      <input type="text" id="respuesta" class="form-control w-50" placeholder="Escribe tu respuesta">
+      <button class="btn btn-success mt-2" onclick="verificar()">Responder</button>
+      <p id="resultado2"></p>
+    </div>
+
+    <!-- Juego 3: Memoria rápida -->
+    <div class="game-box">
+      <h4>🧠 Juego de Memoria</h4>
+      <p>Haz clic en los cuadros para encontrar las parejas.</p>
+      <div class="d-flex flex-wrap" style="width:220px;">
+        <button class="btn btn-outline-dark m-1" onclick="voltear(this)">🍎</button>
+        <button class="btn btn-outline-dark m-1" onclick="voltear(this)">🍌</button>
+        <button class="btn btn-outline-dark m-1" onclick="voltear(this)">🍎</button>
+        <button class="btn btn-outline-dark m-1" onclick="voltear(this)">🍌</button>
+      </div>
+      <p id="resultado3"></p>
+    </div>
+
+  </div>
+
+  <footer class="bg-dark text-light text-center py-3">
+    &copy; 2025 Healthy Treats - Todos los derechos reservados
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Juego 1: Adivina el número
+    const secreto = Math.floor(Math.random() * 10000) + 1;
+    function adivinar() {
+      let n = parseInt(document.getElementById("numero").value);
+      if (n === secreto) {
+        document.getElementById("resultado1").innerText = "¡Correcto! 🎉";
+      } else if (n < secreto) {
+        document.getElementById("resultado1").innerText = "El número es mayor.";
+      } else {
+        document.getElementById("resultado1").innerText = "El número es menor.";
+      }
+    }
+
+    // Juego 2: Pregunta rápida
+    function verificar() {
+      let r = document.getElementById("respuesta").value.trim().toLowerCase();
+      if (r === "lima") {
+        document.getElementById("resultado2").innerText = "¡Correcto! 🎉";
+      } else {
+        document.getElementById("resultado2").innerText = "Incorrecto, inténtalo otra vez.";
+      }
+    }
+
+    // Juego 3: Memoria rápida
+    let carta1 = null;
+    function voltear(boton) {
+      if (boton.disabled) return;
+      boton.disabled = true;
+      if (!carta1) {
+        carta1 = boton;
+      } else {
+        if (carta1.textContent === boton.textContent) {
+          document.getElementById("resultado3").innerText = "¡Encontraste una pareja! 🎉";
+        } else {
+          document.getElementById("resultado3").innerText = "No coinciden, sigue intentando.";
+          setTimeout(() => { carta1.disabled = false; boton.disabled = false; }, 1000);
+        }
+        carta1 = null;
+      }
+    }
+  </script>
+</body>
+</html>
