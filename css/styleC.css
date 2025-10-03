@@ -1,0 +1,33 @@
+.nav-item {
+  position: relative;
+}
+
+.sub-navbar {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.sub-navbar li a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+.sub-navbar li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mostrar submenú al hacer hover */
+.nav-item:hover .sub-navbar {
+  display: block;
+}
