@@ -1,9 +1,13 @@
 img{
     border-radius: 50%;
 }
-.container-fluid{
-    background-color:rgba(75, 32, 7, 0.925);
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  margin-top: 37px;
 }
-nav{
-    background-color: rgba(75, 32, 7, 0.925);
+
+.navbar-custom {
+    background-color: #7b3c1a; /* Este es un color marrón */
 }
