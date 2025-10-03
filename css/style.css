@@ -32,3 +32,6 @@ img{
   text-align: center;
   color: #333;
 }
+.navbar-custom {
+    background-color: #7b3c1a; /* Este es un color marrón */
+  }
