@@ -7,3 +7,6 @@ img{
 nav{
     background-color: rgba(75, 32, 7, 0.925);
 }
+.navbar-custom {
+    background-color: #7b3c1a; 
+  }
