@@ -1,3 +1,9 @@
 img{
     border-radius: 50%;
 }
+.container-fluid{
+    background-color:rgba(75, 32, 7, 0.925);
+}
+nav{
+    background-color: rgba(75, 32, 7, 0.925);
+}
