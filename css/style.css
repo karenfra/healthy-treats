@@ -4,7 +4,6 @@ body, html {
   padding: 0;
   font-family: Arial, sans-serif;
 }
-
 /* Sección de video a pantalla completa */
 .video-section {
   position: relative;
@@ -23,10 +22,9 @@ body, html {
   object-fit: cover;
 }
 
-img{
+.logito{
     border-radius: 50%;
 }
-
 /* Contenido debajo */
 .content {
   padding: 100px 20px;
@@ -36,3 +34,11 @@ img{
 .navbar-custom {
     background-color: #7b3c1a; /* Este es un color marrón */
   }
+
+.CatalogoR{
+  border-radius: 10px;
+  width: 400px;
+  height: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
