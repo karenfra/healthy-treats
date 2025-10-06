@@ -31,15 +31,21 @@
   background-color: #683a22;
 }
 
-/* Mostrar submenú al hacer hover */
+/*/// Mostrar submenú al hacer hover ///*/
 .nav-item:hover .sub-navbar {
   display: block;
+  animation: fadeIn 0.3s ease;
 }
 
-/* Sección de categorías Linea Clásica  */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/*/// Sección de categorías  ///*/
 .categorias-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
 }
 
@@ -56,8 +62,14 @@
   height: 400px;
   background-size: cover;
   background-position: center;
-  color: rgb(180, 255, 251);
-  text-shadow: 0 5px 12px rgb(0, 0, 0);
+}
+
+.categoria::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .categoria a {
@@ -65,20 +77,64 @@
   z-index: 2;
 }
 
-.categoria::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 1;
-}
-
 .categoria h3 {
-  font-size: 22px;
-  font-weight: bold;
+  font-family: "Cormorant", sans-serif;
+  font-size: 35px;
+  font-weight: 800;
   margin-bottom: 10px;
   text-transform: uppercase;
+  color: rgb(132, 240, 240);
+  -webkit-text-stroke: 1.5px #000;
+  paint-order: stroke fill;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.btn-todo-productos {
+  font-family: "Cormorant", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: bisque;
+  border: 2px solid #4b210a;
+  color: #7b3c1a;
+}
+
+.btn-todo-productos:hover {
+  background-color: #7b3c1a;
+  color: bisque;
+  box-shadow: 0 0 10px rgba(123, 60, 26, 0.5);
+  transform: scale(1.03);
 }
 
 .btn-ver-todo {
-  margin-bottom: 15px;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  width: 50%;
+  padding: 10px 0;
+  transform: translate(-50%, 15%);
+  color: #f5cfbb;
+  background-color: #683a22;
+  border: 1px solid #f5cfbb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.671);
+  border-radius: 8px;
+  font-family: "Cormorant", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-todo:hover {
+  background-color: #4b210a;
+  color: #f5cfbb;
+  box-shadow: 0 0 20px rgba(209, 143, 68, 0.7);
+  transform: translate(-50%, 15%) scale(1.05);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
