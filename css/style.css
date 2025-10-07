@@ -35,10 +35,53 @@ body, html {
     background-color: #7b3c1a; /* Este es un color marrón */
   }
 
-.CatalogoR{
+.categoria {
+  position: relative;
+  width: 350px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
   border-radius: 10px;
-  width: 400px;
-  height: 300px;
-  margin-left: 10px;
-  margin-right: 10px;
+  overflow: hidden;
+  padding-bottom: 60px; /* espacio para el botón */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.categoria h3 {
+  position: absolute;
+  bottom: 70px; /* encima del botón */
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  font-size: 22px;
+  text-align: center;
+}
+
+.btn-ver-todo {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7b3c1a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover efecto */
+.btn-ver-todo:hover {
+  background-color: #5e2d12;
+}
+
+.categoria:hover {
+  filter: brightness(0.9);
+  transform: scale(1.03);
 }
