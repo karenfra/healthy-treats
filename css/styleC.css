@@ -2,6 +2,11 @@
     border-radius: 50%;
 }
 
+body {
+  background-color: #fffaf4; /* fondo cálido muy claro */
+  color: #3B1C0A;
+}
+
 .nav-item {
   position: relative;
 }
@@ -11,7 +16,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #7b3c1a;
+  background-color: #6B2E1D;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -23,7 +28,7 @@
   display: block;
   padding: 10px 20px;
   text-decoration: none;
-  color: #f5cfbb;
+  color: #F7E3C5;
   white-space: nowrap;
 }
 
@@ -83,10 +88,11 @@
   font-weight: 800;
   margin-bottom: 10px;
   text-transform: uppercase;
-  color: rgb(132, 240, 240);
-  -webkit-text-stroke: 1.5px #000;
+  color: #f7e3c5;
+  -webkit-text-stroke: 1px #3B1C0A;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   paint-order: stroke fill;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+
   z-index: 2;
 }
 
@@ -95,9 +101,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: bisque;
-  border: 2px solid #4b210a;
-  color: #7b3c1a;
+  background-color: #F7E3C5;
+  border: 2px solid #6B2E1D;
+  color: #4B1A0F;
 }
 
 .btn-todo-productos:hover {
@@ -114,9 +120,8 @@
   width: 50%;
   padding: 10px 0;
   transform: translate(-50%, 15%);
-  color: #f5cfbb;
-  background-color: #683a22;
-  border: 1px solid #f5cfbb;
+  color: #F7E3C5;
+  background-color: #6B2E1D;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.671);
   border-radius: 8px;
   font-family: "Cormorant", sans-serif;
@@ -126,8 +131,8 @@
 }
 
 .btn-ver-todo:hover {
-  background-color: #4b210a;
-  color: #f5cfbb;
+  background-color: #4B1A0F;
+  color: #F7E3C5;
   box-shadow: 0 0 20px rgba(209, 143, 68, 0.7);
   transform: translate(-50%, 15%) scale(1.05);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -137,4 +142,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Roboto Serif";
+  font-weight: 500;
+  color: #3d2217;
 }
