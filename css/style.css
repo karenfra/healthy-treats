@@ -5,61 +5,98 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
-/* Sección de video a pantalla completa */
 .video-section {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100vh; /* ocupa el alto visible */
   overflow: hidden;
 }
 
 .video-section video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover; /* Mantiene la relación de aspecto */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* llena el área visible */
 }
 
-/* Asegura que el video tome el 100% de ancho y alto en dispositivos móviles */
 @media (max-width: 768px) {
   .video-section {
-    height: 100vh; /* Mantiene el alto completo en móviles */
-  }
-
-  .video-section video {
-    min-width: auto; /* Cambio para escalar adecuadamente */
-    min-height: 100%;
-    max-width: none; /* Asegura que utilice todo el ancho */
+    height: 60vh; /* se achica visualmente en móviles */
   }
 }
 
+/* ----- Overlay general ----- */
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px; /* margen lateral para que el texto no se corte en móvil */
 }
 
+/* ----- Texto principal ----- */
 .overlay-text {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;  
-    font-size: 4rem;  
-    text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-size: 4rem;
+  line-height: 1.2;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
+/* ----- Palabra destacada ----- */
 .overlay-text span {
   color: #D4AF37;
   font-size: 7vh;
   font-family: "Fleur De Leah", cursive;
+  display: block; /* permite que aparezca debajo del texto principal */
+}
+
+/* ----- Responsividad ----- */
+@media (max-width: 1200px) {
+  .overlay-text {
+    font-size: 3.5rem;
+  }
+
+  .overlay-text span {
+    font-size: 6vh;
+  }
+}
+
+@media (max-width: 992px) {
+  .overlay-text {
+    font-size: 3rem;
+  }
+
+  .overlay-text span {
+    font-size: 5.5vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay-text {
+    font-size: 2.3rem;
+  }
+
+  .overlay-text span {
+    font-size: 5vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .overlay-text {
+    font-size: 1.8rem;
+  }
+
+  .overlay-text span {
+    font-size: 4.5vh;
+  }
 }
 
 .logito{
@@ -75,9 +112,19 @@ body, html {
     background-color: #7b3c1a; /* Este es un color marrón */
   }
 
+.categorias-container {
+  display: flex;
+  justify-content: center; /* centra el grupo horizontalmente */
+  align-items: center;
+  flex-wrap: wrap; /* permite que bajen cuando no hay espacio */
+  gap: 20px;
+  padding: 40px 20px;
+}
+
 .categoria {
   position: relative;
-  width: 350px;
+  width: 100%;
+  max-width: 350px; /* límite máximo en pantallas grandes */
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -87,8 +134,9 @@ body, html {
   background-position: center;
   border-radius: 10px;
   overflow: hidden;
-  padding-bottom: 60px; /* espacio para el botón */
+  padding-bottom: 60px;
   transition: transform 0.3s ease, filter 0.3s ease;
+  margin: 0 auto; /* centrado individual */
 }
 
 .categoria h3 {
@@ -100,6 +148,42 @@ body, html {
   text-shadow: 0 2px 5px rgba(0,0,0,0.6);
   font-size: 22px;
   text-align: center;
+}
+
+/* 🔹 Ajustes responsive */
+@media (max-width: 992px) {
+  .categoria {
+    height: 320px;
+    max-width: 300px;
+  }
+
+  .categoria h3 {
+    bottom: 80px; /* más espacio respecto al botón */
+  }
+}
+
+@media (max-width: 768px) {
+  .categoria {
+    height: 280px;
+    max-width: 260px;
+  }
+
+  .categoria h3 {
+    font-size: 18px;
+    bottom: 90px; /* más distancia al achicarse */
+  }
+}
+
+@media (max-width: 576px) {
+  .categoria {
+    height: 240px;
+    max-width: 90%;
+  }
+
+  .categoria h3 {
+    font-size: 16px;
+    bottom: 80px; /* aún más arriba para mantener espacio */
+  }
 }
 
 .btn-ver-todo {
@@ -120,6 +204,18 @@ body, html {
 .btn-ver-todo:hover {
   background-color: #5e2d12;
 }
+
+.card-color1{
+  background-color: #AFF8DB;
+}
+.card-color2{
+  background-color: #FFAABB;
+}
+.card-color3{
+  background-color: #AA79AF;
+}
+
+
 
 #navbar-container {
   min-height: 70px; /* o el alto aproximado de tu navbar */
@@ -146,6 +242,18 @@ body, html {
 
 main {
   flex: 1; 
+}
+
+#Panel1{
+  margin-top: 40px;
+  background-color: lightskyblue;
+}
+#Panel2{
+  background-color: lightgreen;
+}
+#Panel3{
+  background-color: lightpink;
+  margin-bottom: 20px;
 }
 
 .site-footer {

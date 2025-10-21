@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Healthy Treats</title>
+  <link rel="icon" type="image/png" href="imagenes/logo.png">
 
   <!-- FUENTES IMPORTADAS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,14 +36,69 @@
     </div>
   </div>
   
-  <!-- CONTENIDO DE INCIO -->
-  <div class="content container">
-    <h1 class="mt-5">Bienvenido a Healthy Treats</h1>
-    <p>Disfruta de nuestra web con estilo</p>
+  <!-- Presentacion de Inicio -->
+  <main class="container-fluid mt-5 pt-5">
+    <section class="hero text-center mb-5">
+      <div class="container">
+        <h1 class="display-5 fw-bold mt-3">
+          Healthy Treats — Placer sensorial y bienestar nutricional
+        </h1>
+        <p class="lead text-muted mx-auto" style="max-width: 760px;">
+          Redistribuimos la repostería saludable: recetas que evocan tradición, creadas con ingredientes autóctonos de la sierra y la selva peruana, y elaboradas bajo procesos rigurosos para garantizar frescura y pureza.
+        </p>
+      </div>
+    </section>
+
+
+  <!-- Presentacion de historia  -->
+  <section id="nosotros" class="row align-items-center g-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+      <h3 class="fw-semibold">Nuestra esencia</h3>
+      <p class="text-muted">Healthy Treats redefine la repostería saludable, fusionando placer y nutrición en cada creación. 
+                            Seleccionamos frutas, granos y endulzantes naturales de la sierra y la selva, transformándolos en postres que cuidan 
+                            el cuerpo sin perder lujo ni textura.</p>
+      <ul class="list-unstyled mt-3">
+        <li class="li-highlight mb-2"><strong>Ingredientes autóctonos:</strong> cacao nativo, lúcuma, camu camu, quinua y más.</li>
+        <li class="li-highlight mb-2"><strong>Sin aditivos:</strong> elaboraciones libres de conservantes y sabores artificiales.</li>
+        <li class="li-highlight"><strong>Calidad supervisada:</strong> procesos de producción controlados para garantizar frescura y seguridad.</li>
+      </ul>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <img src="imagenes/cheesecakeLV.jpg" width="320" height="360" alt="Postres Healthy Treats" class="img-fluid rounded shadow-sm">
+    </div>
+  </section>
+
+
+
+<section class="mt-5">
+  <h2 class="fw-bold text-center mb-4">NUESTROS VALORES</h2>
+  <div class="row text-center g-3">
+    <div class="col-md-4">
+      <div class="card card-color1 border-0 shadow-sm p-3">
+        <h5>Salud</h5>
+        <p class="text-muted">Opciones sin lactosa, bajas en azúcar e integrales.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-color2 border-0 shadow-sm p-3">
+        <h5>Artesanía</h5>
+        <p class="text-muted">Cada pieza recibe atención y tiempo.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card card-color3 border-0 shadow-sm p-3">
+        <h5>Comunidad</h5>
+        <p class="text-muted">Formación y trabajo local sostenible.</p>
+      </div>
+    </div>
   </div>
+</section>
+</main>
 
-<div class="categorias-grid container mt-5">
-
+<h2 class="fw-bold title-top text-center mb-2 mt-5">NUESTRAS LINEAS</h2>
+<div class="categorias-grid container mt-4">
   <!-- COLECCIÓN LINEA CLÁSICA -->
   <a href="html/Catalogo/LineaClasica.html" class="categoria-link">
     <div class="categoria" style="background-image: url('imagenes/imgclasica.avif');">
@@ -59,7 +115,7 @@
     </div>
   </a>
 
-  <!-- LCOLECCION SIN GLUTÉN -->
+  <!-- COLECCION SIN GLUTÉN -->
   <a href="html/Catalogo/PostresSinG.html" class="categoria-link">
     <div class="categoria" style="background-image: url('imagenes/imgsing.jpg');">
       <h3>Línea Sin Gluten</h3>
@@ -67,7 +123,68 @@
     </div>
   </a>
 </div>
-    <br>
+<br>
+<!-- <div class="container text-center">
+  <div class="row align-items-start">
+      <div class="col-6" id="Panel1">
+        <div class="texto">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Vegana</h2>
+      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
+      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
+      <p>
+        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
+      </p>
+      <ul>
+        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
+        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
+        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
+      </ul>
+    </div>
+      </div>
+      <div class="col-6" id="Panel1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
+      </div>
+    <div class="col-6" id="Panel2">
+        <div class="texto">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Vegana</h2>
+      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
+      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
+      <p>
+        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
+      </p>
+      <ul>
+        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
+        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
+        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
+      </ul>
+    </div>
+      </div>
+      <div class="col-6" id="Panel2">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
+      </div>
+    <div class="col-6" id="Panel3">
+        <div class="texto">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Vegana</h2>
+      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
+      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
+      <p>
+        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
+      </p>
+      <ul>
+        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
+        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
+        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
+      </ul>
+    </div>
+      </div>
+      <div class="col-6" id="Panel3">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
+      </div>
+  </div>
+</div> -->
   <!-- Footer -->
 </body>
 </html>

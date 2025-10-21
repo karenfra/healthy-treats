@@ -12,6 +12,9 @@ body, html {
     background-color: #7b3c1a;
 }
 
+#vic{
+  margin-bottom: 10px;
+}
 .imagen-fondo {
   position: absolute;
   top: 0;
