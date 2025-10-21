@@ -52,7 +52,7 @@ body, html {
 .overlay-text {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;  
-    font-size: 6rem;  
+    font-size: 4rem;  
     text-align: center;
 }
 
@@ -121,7 +121,38 @@ body, html {
   background-color: #5e2d12;
 }
 
+#navbar-container {
+  min-height: 70px; /* o el alto aproximado de tu navbar */
+}
+
+/* Imagen debajo del navbar (no bloquea clics) */
+.imagen-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65px; 
+  background-color: #5e2d12;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  pointer-events: none; 
+}
+
 .categoria:hover {
   filter: brightness(0.9);
   transform: scale(1.03);
+}
+
+main {
+  flex: 1; 
+}
+
+.site-footer {
+  background-color: #222;
+  color: #eee;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+  width: 100%;
 }
