@@ -1,0 +1,228 @@
+{
+  "tortas": [
+    {
+      "id": "tchoco",
+      "nombre": "Torta de Chocolate",
+      "descripcion": "Suave bizcocho de cacao con relleno y cobertura de ganache de chocolate puro.",
+      "imagen": "#"
+    },
+    {
+      "id": "tselva",
+      "nombre": "Torta Selva Negra",
+      "descripcion": "Bizcocho de chocolate con cerezas y crema batida, decorada con virutas de chocolate.",
+      "imagen": "#"
+    },
+    {
+      "id": "tvainilla",
+      "nombre": "Torta de Vainilla",
+      "descripcion": "Esponjosa base de vainilla con crema chantilly y un toque de almíbar.",
+      "imagen": "#"
+    },
+    {
+      "id": "tleches",
+      "nombre": "Torta Tres Leches",
+      "descripcion": "Bizcocho bañado en mezcla de tres leches, cubierto con merengue o crema batida.",
+      "imagen": "#"
+    },
+    {
+      "id": "tfresas",
+      "nombre": "Torta de Fresas con Crema",
+      "descripcion": "Capas de bizcocho de vainilla, crema pastelera y fresas frescas.",
+      "imagen": "#"
+    },
+    {
+      "id": "tzanahoria",
+      "nombre": "Torta de Zanahoria",
+      "descripcion": "Bizcocho húmedo con zanahoria rallada y nueces, cubierto con frosting de queso crema.",
+      "imagen": "#"
+    },
+    {
+      "id": "tredvelvet",
+      "nombre": "Torta Red Velvet",
+      "descripcion": "Bizcocho rojo aterciopelado con relleno de crema de queso suave.",
+      "imagen": "#"
+    }
+  ],
+  "cheesecakes": [
+    {
+      "id": "cmaracuya",
+      "nombre": "Cheesecake de Maracuyá",
+      "descripcion": "Base crujiente con crema de queso y una capa de pulpa de maracuyá fresca.",
+      "imagen": "#"
+    },
+    {
+      "id": "cfresa",
+      "nombre": "Cheesecake de Fresa",
+      "descripcion": "Suave relleno de queso con cobertura de mermelada y trozos de fresa natural.",
+      "imagen": "#"
+    },
+    {
+      "id": "cfrutosrojos",
+      "nombre": "Cheesecake de Frutos Rojos",
+      "descripcion": "Mezcla de frambuesas, moras y arándanos sobre un cheesecake ligero y cremoso.",
+      "imagen": "#"
+    },
+    {
+      "id": "coreo",
+      "nombre": "Cheesecake de Oreo",
+      "descripcion": "Relleno cremoso con trozos de galleta Oreo y base de galleta de chocolate.",
+      "imagen": "#"
+    },
+    {
+      "id": "cchoco",
+      "nombre": "Cheesecake de Chocolate",
+      "descripcion": "Intenso sabor a cacao con textura aterciopelada y cobertura de ganache.",
+      "imagen": "#"
+    },
+    {
+      "id": "climon",
+      "nombre": "Cheesecake de Limón",
+      "descripcion": "Refrescante y equilibrado, con crema cítrica y base de galleta dulce.",
+      "imagen": "#"
+    },
+    {
+      "id": "cmango",
+      "nombre": "Cheesecake de Mango",
+      "descripcion": "Sabor tropical con puré de mango natural y un toque ácido-dulce.",
+      "imagen": "#"
+    },
+    {
+      "id": "ccafe",
+      "nombre": "Cheesecake de Café",
+      "descripcion": "Fusión aromática de queso y café espresso, ideal para los amantes del café.",
+      "imagen": "#"
+    }
+  ],
+  "minitortas": [
+    {
+      "id": "mtchoco",
+      "nombre": "Mini-Torta de Chocolate",
+      "descripcion": "Suave bizcocho de cacao con relleno y cobertura de ganache de chocolate puro.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtselva",
+      "nombre": "Mini-Torta Selva Negra",
+      "descripcion": "Bizcocho de chocolate con cerezas y crema batida, decorada con virutas de chocolate.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtvainilla",
+      "nombre": "Mini-Torta de Vainilla",
+      "descripcion": "Esponjosa base de vainilla con crema chantilly y un toque de almíbar.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtleches",
+      "nombre": "Mini-Torta Tres Leches",
+      "descripcion": "Bizcocho bañado en mezcla de tres leches, cubierto con merengue o crema batida.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtfresas",
+      "nombre": "Mini-Torta de Fresas con Crema",
+      "descripcion": "Capas de bizcocho de vainilla, crema pastelera y fresas frescas.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtzanahoria",
+      "nombre": "Mini-Torta de Zanahoria",
+      "descripcion": "Bizcocho húmedo con zanahoria rallada y nueces, cubierto con frosting de queso crema.",
+      "imagen": "#"
+    },
+    {
+      "id": "mtredvelvet",
+      "nombre": "Mini-Torta Red Velvet",
+      "descripcion": "Bizcocho rojo aterciopelado con relleno de crema de queso suave.",
+      "imagen": "#"
+    }
+  ],
+  "postres": [
+    {
+      "id": "psuspiro",
+      "nombre": "Suspiro Limeño",
+      "descripcion": "Postre tradicional peruano de manjar blanco con merengue al oporto, suave y delicado.",
+      "imagen": "#"
+    },
+    {
+      "id": "ptiramisu",
+      "nombre": "Tiramisú Italiano",
+      "descripcion": "Capas de bizcocho embebido en café espresso y licor, con crema de mascarpone y cacao espolvoreado.",
+      "imagen": "#"
+    },
+    {
+      "id": "pflan",
+      "nombre": "Flan de Vainilla",
+      "descripcion": "Cremoso flan casero con aroma natural de vainilla y caramelo dorado.",
+      "imagen": "#"
+    },
+    {
+      "id": "pbrownie",
+      "nombre": "Brownie de Chocolate",
+      "descripcion": "Suave por dentro y ligeramente crocante por fuera, elaborado con cacao premium.",
+      "imagen": "#"
+    },
+    {
+      "id": "pmousse",
+      "nombre": "Mousse de Maracuyá",
+      "descripcion": "Espuma ligera y refrescante con el toque ácido del maracuyá tropical.",
+      "imagen": "#"
+    },
+    {
+      "id": "pcrema",
+      "nombre": "Crema Volteada",
+      "descripcion": "Flan tradicional peruano con textura firme, sabor a caramelo y vainilla.",
+      "imagen": "#"
+    },
+    {
+      "id": "ppie",
+      "nombre": "Pie de Limón",
+      "descripcion": "Base crocante de galleta con crema de limón y merengue dorado.",
+      "imagen": "#"
+    }
+  ],
+  "bocaditos": [
+    {
+      "id": "balfajores",
+      "nombre": "Mini Alfajores",
+      "descripcion": "Galletas suaves rellenas de manjar blanco y espolvoreadas con azúcar impalpable.",
+      "imagen": "#"
+    },
+    {
+      "id": "btrufas",
+      "nombre": "Trufas de Chocolate",
+      "descripcion": "Bolitas gourmet de chocolate con baño de cacao, coco o granillo.",
+      "imagen": "#"
+    },
+    {
+      "id": "bbrownies",
+      "nombre": "Mini Brownies de Chocolate",
+      "descripcion": "Pequeños bocados de chocolate intenso con textura suave y crocante exterior.",
+      "imagen": "#"
+    },
+    {
+      "id": "bsandwich",
+      "nombre": "Mini Sandwiches de Pollo (Petit Pan)",
+      "descripcion": "Pan suave con relleno de pollo deshilachado, mayonesa y toque de apio.",
+      "imagen": "#"
+    },
+    {
+      "id": "bempanadass",
+      "nombre": "Empanaditas de Carne",
+      "descripcion": "Pequeñas empanadas horneadas con relleno jugoso de carne sazonada.",
+      "imagen": "#"
+    },
+    {
+      "id": "btequeños",
+      "nombre": "Mini-Torta de Zanahoria",
+      "descripcion": "Palitos de masa fritos rellenos de queso derretido, servidos con guacamole o salsa huancaína.",
+      "imagen": "#"
+    },
+    {
+      "id": "bpizzas",
+      "nombre": "Mini Pizzas",
+      "descripcion": "Mini pizzas con salsa de tomate, mozzarella y orégano.",
+      "imagen": "#"
+    }
+  ]
+}
