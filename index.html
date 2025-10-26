@@ -21,6 +21,9 @@
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script defer src="JS/navbar.js"></script>
   <script src="JS/footer.js"></script>
+  <script src="JS/scrowInicio.js"></script>
+  
+  <script src="JS/rsponsiveSeccion.js"></script>
 </head>
 <body>
   <!-- Imagen-fondo -->
@@ -37,7 +40,7 @@
   </div>
   
   <!-- Presentacion de Inicio -->
-  <main class="container-fluid mt-5 pt-5">
+  <main id="inicio" class="container-fluid mt-5 pt-5">
     <section class="hero text-center mb-5">
       <div class="container">
         <h1 class="display-5 fw-bold mt-3">
@@ -63,10 +66,13 @@
         <li class="li-highlight mb-2"><strong>Sin aditivos:</strong> elaboraciones libres de conservantes y sabores artificiales.</li>
         <li class="li-highlight"><strong>Calidad supervisada:</strong> procesos de producción controlados para garantizar frescura y seguridad.</li>
       </ul>
+      <div class="contenedor-boton">
+        <a href="html/Quienes somos.html"><button class="btn-animado">LEER MAS</button></a>
+      </div>
       </div>
     </div>
     <div class="col-md-6 text-center">
-      <img src="imagenes/cheesecakeLV.jpg" width="320" height="360" alt="Postres Healthy Treats" class="img-fluid rounded shadow-sm">
+      <img src="imagenes/cheesecakeLV.jpg" width="320" height="100" alt="Postres Healthy Treats" class="img-fluid rounded shadow-sm">
     </div>
   </section>
 
@@ -124,67 +130,79 @@
   </a>
 </div>
 <br>
-<!-- <div class="container text-center">
-  <div class="row align-items-start">
-      <div class="col-6" id="Panel1">
-        <div class="texto">
-      <h4>NUESTRAS LÍNEAS</h4>
-      <h2>Línea Vegana</h2>
-      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
-      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
-      <p>
-        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
-      </p>
-      <ul>
-        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
-        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
-        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
-      </ul>
-    </div>
-      </div>
-      <div class="col-6" id="Panel1">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
-      </div>
-    <div class="col-6" id="Panel2">
-        <div class="texto">
-      <h4>NUESTRAS LÍNEAS</h4>
-      <h2>Línea Vegana</h2>
-      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
-      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
-      <p>
-        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
-      </p>
-      <ul>
-        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
-        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
-        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
-      </ul>
-    </div>
-      </div>
-      <div class="col-6" id="Panel2">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
-      </div>
-    <div class="col-6" id="Panel3">
-        <div class="texto">
-      <h4>NUESTRAS LÍNEAS</h4>
-      <h2>Línea Vegana</h2>
-      <p>Estos postres son elaborados sin incluir ningún insumo de procedencia animal.</p>
-      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
-      <p>
-        Reemplazamos los ingredientes tradicionales con alternativas vegetales que aportan el mismo sabor y textura, pero con beneficios adicionales:
-      </p>
-      <ul>
-        <li><b>Leches vegetales:</b> Utilizamos leche de coco, soya o cashews.</li>
-        <li><b>Sustitutos del huevo:</b> Utilizamos linaza o puré de frutas.</li>
-        <li><b>Endulzantes naturales:</b> Usamos panela integral o miel de agave.</li>
-      </ul>
-    </div>
-      </div>
-      <div class="col-6" id="Panel3">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_TVy8jATt0Q0jbXl5cXD8nvI4TpCVg2_hQ&s" width="329" height="350" alt="">
-      </div>
+<!-- Nuevo spy -->
+<section class="rowLineas">
+  <!-- Columna de imágenes -->
+  <div class="col-6 col-imgs">
+    <img class="LargeImage section" data-index="1" data-color="#ffcaca"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Desserts.jpg/250px-Desserts.jpg" alt="Línea Clásica">
+    <img class="LargeImage section" data-index="2" data-color="#ffeeca"
+      src="https://www.virutasdelimon.com/wp-content/uploads/2020/10/cheesecake-vegano-1.jpg" alt="Línea Vegana">
+    <img class="LargeImage section" data-index="3" data-color="#ffffca"
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZB-DZWj7AF6VoaIRx5MsoYnVGj1jWsilNA&s" alt="Línea Sin Gluten">
+    <img class="LargeImage section" data-index="4" data-color="#fabbca"
+      src="https://content.clara.es/medio/2022/01/05/postres-faciles-vasitos-chocolate-nata_a8d61a3c_1000x1500.jpg" alt="Línea Vegana">
   </div>
-</div> -->
+
+  <!-- Columna de texto (sticky) -->
+  <div class="col-6 sticky-text">
+
+    <!-- Texto 1 -->
+    <div class="texto textMod active" data-index="1">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Clásica</h2>
+      <p>Esta línea representa los sabores tradicionales elaborados con ingredientes selectos y técnicas artesanales.</p>
+      <h3>¿Qué hace especiales a nuestros postres clásicos?</h3>
+      <p>Combinamos tradición y calidad, ofreciendo postres con sabor auténtico y una textura perfecta.</p>
+      <ul>
+        <li><b>Ingredientes naturales:</b> mantequilla, harina y cacao de alta calidad.</li>
+        <li><b>Recetas caseras:</b> inspiradas en los postres de toda la vida.</li>
+        <li><b>Toques únicos:</b> cada sabor tiene un equilibrio propio.</li>
+      </ul>
+    </div>
+
+    <!-- Texto 2 -->
+    <div class="texto textMod" data-index="2">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Vegana</h2>
+      <p>Postres elaborados sin ningún ingrediente de origen animal.</p>
+      <h3>¿Qué hace especiales a nuestros postres veganos?</h3>
+      <p>Reemplazamos los ingredientes tradicionales con alternativas vegetales que mantienen sabor y textura.</p>
+      <ul>
+        <li><b>Leches vegetales:</b> coco, soya o cashews.</li>
+        <li><b>Sustitutos del huevo:</b> linaza o puré de frutas.</li>
+        <li><b>Endulzantes naturales:</b> panela integral o miel de agave.</li>
+      </ul>
+    </div>
+
+    <!-- Texto 3 -->
+    <div class="texto textMod" data-index="3">
+      <h4>NUESTRAS LÍNEAS</h4>
+      <h2>Línea Sin Gluten</h2>
+      <p>Perfectos para quienes buscan disfrutar sin preocuparse por el gluten.</p>
+      <h3>¿Qué hace especiales a nuestros postres sin gluten?</h3>
+      <p>Utilizamos harinas alternativas y procesos que aseguran textura y sabor ideales.</p>
+      <ul>
+        <li><b>Harinas especiales:</b> arroz, almendra o avena certificada.</li>
+        <li><b>Sin contaminación cruzada:</b> proceso cuidadoso y seguro.</li>
+        <li><b>Textura ligera:</b> cada bocado es suave y delicioso.</li>
+      </ul>
+    </div>
+
+    <!-- Texto 4 -->
+    <div class="texto textMod" data-index="4">
+      <h4>DESCUBRE MAS</h4>
+      <h2>En la seccion MAS</h2>
+      <h3>Puedes encontrar:</h3>
+      <ul>
+        <li><b>Testimonios:</b>Podras ver los testimonios veridicos de clientes como tú</li>
+        <li><b>Juegos:</b> Entrentente mientras esperas tu delicioso y saludable pedido</li>
+        <li><b>Podcasts informativos:</b>informate de dietas balanceadas con nosotros</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
   <!-- Footer -->
 </body>
 </html>

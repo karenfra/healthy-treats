@@ -27,3 +27,21 @@ body, html {
   z-index: 0;
   pointer-events: none; 
 }
+
+.timeline div {
+  position: relative;
+  padding-left: 15px;
+  border-left: 3px solid #d4a373;
+  margin-bottom: 10px;
+}
+
+.timeline div::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  background-color: #d4a373;
+  border-radius: 50%;
+}

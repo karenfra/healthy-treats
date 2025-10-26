@@ -99,6 +99,29 @@ body, html {
   }
 }
 
+.contenedor-boton {
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* opcional: centra verticalmente */
+}
+
+.btn-animado {
+  color: aliceblue;
+  border-radius: 25px;
+  border: #D4AF37 solid;
+  background-color: #5e2d12;
+  width: 120px;
+  height: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.btn-animado:hover {
+    border: none;
+    background-color: #eeba10;
+    transform: translateY(-3px); /* pequeño movimiento */
+    box-shadow: 0 6px 15px rgba(255, 191, 0, 0.705);
+  }
+
 .logito{
     border-radius: 50%;
 }
@@ -202,7 +225,7 @@ body, html {
 
 /* Hover efecto */
 .btn-ver-todo:hover {
-  background-color: #5e2d12;
+  background-color: #6e2d12;
 }
 
 .card-color1{
@@ -263,4 +286,126 @@ main {
   padding: 8px 0;
   font-size: 14px;
   width: 100%;
+}
+
+/* === CONTENEDOR PRINCIPAL === */
+.rowLineas {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  transition: background-color 0.6s ease;
+  background-color: #ffcaca;
+}
+
+.col-6 {
+  flex: 1;
+}
+
+.LargeImage {
+  width: 100%;
+  max-width: 450px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 60px;
+  transition: transform 0.4s ease;
+}
+
+.LargeImage:hover {
+  transform: scale(1.02);
+}
+
+.sticky-text {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.6s ease;
+  background-color: #ffcaca;
+  padding: 20px;
+}
+
+.texto {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  width: 80%;
+  max-width: 450px;
+}
+
+.texto.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+.textMod h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.textMod p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 992px) {
+  .rowLineas {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .col-imgs, .sticky-text {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .sticky-text {
+    background-color: transparent;
+  }
+
+  .responsive-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .responsive-pair img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .responsive-pair .texto {
+    opacity: 1 !important;
+    transform: none;
+    position: relative;
+    text-align: center;
+  }
+}
+/* Asegura que en modo móvil los textos se muestren correctamente */
+.texto.mobile {
+  position: relative !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Estilo parejas en móvil */
+.responsive-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+  margin-bottom: 30px;
 }
