@@ -1,4 +1,7 @@
 /* Reseteo básico */
+.icon {
+    border-radius: 50%;
+}
 body, html {
   margin: 0;
   padding: 0;

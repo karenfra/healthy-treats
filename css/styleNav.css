@@ -1,0 +1,49 @@
+.dropdown {
+  position: relative;
+}
+
+.sub-navbar {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #6B2E1D;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+/* ====== MOSTRAR AL PASAR EL CURSOR ====== */
+.dropdown:hover .sub-navbar {
+  display: block;
+}
+
+/* ESTILO DEL SUBMENÚ */
+.sub-navbar li {
+  list-style: none;
+}
+
+.sub-navbar li a {
+  color: #F7E3C5;
+  text-decoration: none;
+  padding: 10px 16px;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+.sub-navbar li a:hover {
+  background-color: #683a22;
+}
+
+/* FLECHA */
+.dropdown .nav-link::after {
+  content: " ▾";
+  font-size: 0.8em;
+}
+
+.nav-link.active {
+  color: #F7E3C5;
+  font-weight: 600
+}
