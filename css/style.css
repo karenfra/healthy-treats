@@ -359,6 +359,12 @@ main {
 }
 
 /* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .sticky-text h4 {
+    margin-top: 100px; /* ajusta según la altura de tu navbar */
+  }
+}
+
 @media (max-width: 992px) {
   .rowLineas {
     flex-direction: column;
