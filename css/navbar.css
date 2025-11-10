@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.nav-item {
+  position: relative;
+}
+
 .icon {
   border-radius: 50%;
 }

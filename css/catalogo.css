@@ -1,0 +1,220 @@
+/* ===== CATALOGO ===== */
+
+/* Contenedor principal de imágenes y textos */
+.rowLineas {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  transition: background-color 0.6s ease;
+  background-color: #ffcaca;
+}
+
+.col-6 {
+  flex: 1;
+}
+
+/* Imágenes grandes del catálogo */
+.LargeImage {
+  width: 100%;
+  max-width: 450px;
+  height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 60px;
+  transition: transform 0.4s ease;
+}
+
+.LargeImage:hover {
+  transform: scale(1.02);
+}
+
+/* Texto sticky */
+.sticky-text {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.6s ease;
+  background-color: #ffcaca;
+  padding: 20px;
+}
+
+/* Textos individuales */
+.texto {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  width: 80%;
+  max-width: 450px;
+}
+
+.texto.active {
+  opacity: 1;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* Tipografía interna de los textos */
+.textMod h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.textMod p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  .sticky-text h4 {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 992px) {
+  .rowLineas {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .col-imgs, .sticky-text {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+
+  .sticky-text {
+    background-color: transparent;
+  }
+
+  .responsive-pair {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  .responsive-pair img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .responsive-pair .texto {
+    opacity: 1 !important;
+    transform: none;
+    position: relative;
+    text-align: center;
+  }
+}
+
+/* Para que los textos se muestren bien en móviles */
+.texto.mobile {
+  position: relative !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Estilo de las parejas en móvil */
+.responsive-pair {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+  margin-bottom: 30px;
+}
+
+/* ===== CATÁLOGO TARJETAS ===== */
+.contenedor-catalogo .card {
+  background-color: #fffaf4;
+  border-radius: 12px;
+  border: 1px solid #e0c9a6;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contenedor-catalogo .card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.contenedor-catalogo .card-title {
+  font-family: "Fleur De Leah", cursive;
+  font-size: 1.3rem;
+  color: #5e2d12;
+}
+
+.contenedor-catalogo .card-text {
+  font-weight: bold;
+  color: #D4AF37;
+}
+
+/* FILTROS */
+.filtros select, .filtros input {
+  border-radius: 25px;
+  border: 1px solid #D4AF37;
+  padding: 5px 10px;
+}
+
+/* MODAL PAGO */
+#modal-pago .modal-content {
+  border-radius: 12px;
+  background-color: #fffaf4;
+}
+
+#modal-pago input {
+  border-radius: 12px;
+  border: 1px solid #D4AF37;
+}
+
+#modal-pago button {
+  border-radius: 25px;
+  background-color: #5e2d12;
+  border: none;
+}
+
+/* ===== CARRITO LATERAL ===== */
+#carrito-lateral {
+  position: fixed;
+  top: 0;
+  right: -400px; /* siempre oculto al inicio */
+  width: 350px;
+  height: 100vh;
+  background-color: #fffaf4;
+  border-left: 1px solid #e0c9a6;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  overflow-y: auto;
+  transition: right 0.3s ease; /* animación suave */
+  z-index: 1050;
+}
+
+#carrito-lateral.abierto {
+  right: 0; /* aparece al agregar clase "abierto" */
+}
+
+/* ICONO DEL CARRITO - esquina inferior derecha */
+.header-icons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+}
+
+#icono-carrito {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
