@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
           link.classList.add("active");
         }
       });
+      // 🔧 Evitar que el menú aparezca abierto al cargar (solo en la raíz)
+    const collapseElement = navbarContainer.querySelector(".navbar-collapse");
+    if (collapseElement && collapseElement.classList.contains("show")) {
+      collapseElement.classList.remove("show");
+    }
     })
     .catch(err => console.error("❌ Error al cargar navbar:", err));
 });
