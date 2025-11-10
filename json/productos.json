@@ -25,5 +25,41 @@
     "descripcion": "Mini postres variados aptos para celíacos.",
     "precio": 20.00,
     "img": "../imagenes/mini_postres_singluten.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Postres Sin Gluten",
+    "linea": "Sin Gluten",
+    "categoria": "Mini postres",
+    "descripcion": "Mini postres variados aptos para celíacos.",
+    "precio": 20.00,
+    "img": "../imagenes/mini_postres_singluten.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Postres Sin Gluten",
+    "linea": "Sin Gluten",
+    "categoria": "Mini postres",
+    "descripcion": "Mini postres variados aptos para celíacos.",
+    "precio": 20.00,
+    "img": "../imagenes/mini_postres_singluten.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Postres Sin Gluten",
+    "linea": "Sin Gluten",
+    "categoria": "Mini postres",
+    "descripcion": "Mini postres variados aptos para celíacos.",
+    "precio": 20.00,
+    "img": "../imagenes/mini_postres_singluten.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Postres Sin Gluten",
+    "linea": "Sin Gluten",
+    "categoria": "Mini postres",
+    "descripcion": "Mini postres variados aptos para celíacos.",
+    "precio": 20.00,
+    "img": "../imagenes/mini_postres_singluten.jpg"
   }
 ]
