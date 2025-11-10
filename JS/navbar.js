@@ -6,7 +6,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Detectar si estamos dentro de /html/, /html/Catalogo/ o más profundo
   let prefix = "";
-  if (path.includes("/html/Catalogo/LC/") || path.includes("/html/Catalogo/LV/") || path.includes("/html/Catalogo/SG/")) {
+  if (
+    path.includes("/html/Catalogo/LC/") ||
+    path.includes("/html/Catalogo/LV/") ||
+    path.includes("/html/Catalogo/SG/")
+  ) {
     prefix = "../../../"; // tres niveles arriba
   } else if (path.includes("/html/Catalogo/")) {
     prefix = "../../"; // dos niveles arriba
@@ -25,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(html => {
       navbarContainer.innerHTML = html;
 
-      // 🔹 Ajustar los href de los enlaces con data-target
+ // 🔹 Ajustar los href de los enlaces con data-target
       navbarContainer.querySelectorAll("a[data-target]").forEach(link => {
         const target = link.getAttribute("data-target");
         if (target && !target.startsWith("http") && !target.startsWith("#")) {
@@ -42,6 +46,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       console.log("✅ Navbar cargado correctamente");
+
+      /* ===== MARCAR "ACTIVE" UNIVERSAL ===== */
+      const currentPath = window.location.pathname.toLowerCase().replace(/\\/g, "/");
+
+      navbarContainer.querySelectorAll("a").forEach(link => {
+        link.classList.remove("active");
+
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        // Normalizar ambas rutas
+        const normalizedHref = href.toLowerCase().replace(/\\/g, "/");
+        const normalizedFile = normalizedHref.split("/").pop().replace(".html", "");
+        const currentFile = currentPath.split("/").pop().replace(".html", "");
+
+        // --- Coincidencia directa (por nombre de archivo, sin importar guiones o mayúsculas) ---
+        if (normalizedFile && currentFile && currentFile.includes(normalizedFile)) {
+          link.classList.add("active");
+        }
+
+        // --- Coincidencia parcial: estás en una carpeta (como /html/catalogo/...) ---
+        if (
+          currentPath.includes("/html/catalogo/") &&
+          normalizedHref.includes("catalogo")
+        ) {
+          link.classList.add("active");
+        }
+      });
     })
     .catch(err => console.error("❌ Error al cargar navbar:", err));
 });
