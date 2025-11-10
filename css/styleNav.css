@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.icon{
+.icon {
   border-radius: 50%;
 }
 
@@ -24,9 +24,15 @@
   display: block;
 }
 
-/* ESTILO DEL SUBMENÚ */
+/* ====== ESTILO DEL SUBMENÚ ====== */
+.sub-navbar ul {
+  list-style: none;     /* ✅ Quita los puntitos */
+  margin: 0;            /* Elimina márgenes por defecto */
+  padding-left: 0;      /* Quita el sangrado de la lista */
+}
+
 .sub-navbar li {
-  list-style: none;
+  margin: 0;
 }
 
 .sub-navbar li a {
@@ -41,7 +47,7 @@
   background-color: #683a22;
 }
 
-/* FLECHA */
+/* ====== FLECHA ====== */
 .dropdown .nav-link::after {
   content: " ▾";
   font-size: 0.8em;
@@ -49,5 +55,5 @@
 
 .nav-link.active {
   color: #F7E3C5;
-  font-weight: 600
+  font-weight: 600;
 }
