@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nombre": "Cheesecake Clásico",
+    "linea": "Clásica",
+    "categoria": "Cheesecakes",
+    "descripcion": "Delicioso cheesecake tradicional con base de galleta.",
+    "precio": 35.50,
+    "img": "../imagenes/cheesecakeLV.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Torta Vegana de Chocolate",
+    "linea": "Vegana",
+    "categoria": "Tortas",
+    "descripcion": "Torta vegana de chocolate con ingredientes naturales.",
+    "precio": 45.00,
+    "img": "../imagenes/torta_vegana.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Mini Postres Sin Gluten",
+    "linea": "Sin Gluten",
+    "categoria": "Mini postres",
+    "descripcion": "Mini postres variados aptos para celíacos.",
+    "precio": 20.00,
+    "img": "../imagenes/mini_postres_singluten.jpg"
+  }
+]
