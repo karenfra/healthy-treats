@@ -18,19 +18,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Cargar navbar
   fetch(`${prefix}componentes/navbar.html`)
-    .then(res => res.text())
+    .then(res => {
+      if (!res.ok) throw new Error(`Error al cargar navbar: ${res.status}`);
+      return res.text();
+    })
     .then(html => {
       navbarContainer.innerHTML = html;
 
-      // Actualizar los href según el nivel actual
+      // 🔹 Ajustar los href de los enlaces con data-target
       navbarContainer.querySelectorAll("a[data-target]").forEach(link => {
         const target = link.getAttribute("data-target");
-        link.href = `${prefix}${target}`;
+        if (target && !target.startsWith("http") && !target.startsWith("#")) {
+          link.href = `${prefix}${target}`;
+        }
       });
 
-      // Ajustar logo
-      const logo = navbarContainer.querySelector("img.logito");
-      if (logo) logo.src = `${prefix}${logo.getAttribute("src")}`;
+      // 🔹 Ajustar imágenes (incluido el logo)
+      navbarContainer.querySelectorAll("img").forEach(img => {
+        const src = img.getAttribute("src");
+        if (src && !src.startsWith("http") && !src.startsWith(prefix)) {
+          img.src = `${prefix}${src}`;
+        }
+      });
+
+      console.log("✅ Navbar cargado correctamente");
     })
-    .catch(err => console.error("Error al cargar navbar:", err));
+    .catch(err => console.error("❌ Error al cargar navbar:", err));
 });

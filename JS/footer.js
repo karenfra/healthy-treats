@@ -19,6 +19,16 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .then(html => {
       footerContainer.innerHTML = html;
+
+      // 🔹 Ajustar rutas de imágenes y enlaces
+      footerContainer.querySelectorAll("img, a").forEach(el => {
+        const attr = el.tagName === "A" ? "href" : "src";
+        const value = el.getAttribute(attr);
+        if (value && !value.startsWith("http") && !value.startsWith("#")) {
+          el.setAttribute(attr, prefix + value);
+        }
+      });
+
       console.log("✅ Footer cargado correctamente");
     })
     .catch(err => console.error("❌ No se pudo cargar el footer:", err));

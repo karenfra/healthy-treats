@@ -18,10 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
     return template.content.firstChild;
   }
 
-  let observer = null;
   let isMobile = window.innerWidth <= SECTION_BREAKPOINT;
+  let activeColor = null;
+
+  // Referencias a handlers para poder removerlos correctamente
+  const handlers = {
+    desktopScroll: null,
+    desktopResize: null,
+    mobileScroll: null
+  };
 
   function buildDesktop() {
+    // limpiar estado previo
+    activeColor = null;
+    removeDesktopHandlers();
+    removeMobileHandler();
     section.innerHTML = "";
 
     const colImgs = document.createElement("div");
@@ -48,12 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section.appendChild(colImgs);
     section.appendChild(colText);
-    initObserver();
+
+    initObserverDesktop();
   }
 
   function buildMobile() {
+    // limpiar estado previo
+    activeColor = null;
+    removeDesktopHandlers();
+    removeMobileHandler();
     section.innerHTML = "";
-    disconnectObserver();
 
     Object.keys(originalImages).sort((a, b) => a - b).forEach(key => {
       const pair = document.createElement("div");
@@ -63,18 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
       const txtEl = elFromHTML(originalTextos[key]);
 
       imgEl.classList.add("LargeImage");
-      txtEl.classList.add("texto", "mobile");
-      txtEl.classList.add("active");
+      txtEl.classList.add("texto", "mobile", "active");
 
       pair.appendChild(imgEl);
       pair.appendChild(txtEl);
       section.appendChild(pair);
     });
+
+    // Inicia detección de color al hacer scroll en móvil
+    handlers.mobileScroll = handleScrollMobile;
+    window.addEventListener("scroll", handlers.mobileScroll);
+    // aplicar color inicial
+    handleScrollMobile();
   }
 
-  function initObserver() {
-    disconnectObserver();
-
+  function initObserverDesktop() {
     const imgs = Array.from(document.querySelectorAll(".LargeImage"));
     const textos = Array.from(document.querySelectorAll(".texto"));
     const sticky = document.querySelector(".sticky-text");
@@ -98,25 +116,78 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!closestImg) return;
       const idx = closestImg.dataset.index;
 
+      // activar el texto correspondiente
       textos.forEach(t => {
         t.classList.toggle("active", t.dataset.index === idx);
       });
 
-      const color = closestImg.dataset.color;
+      // aplicar color siempre según la imagen más cercana
+      const color = closestImg.dataset.color || null;
+      activeColor = color;
       if (color) {
         section.style.backgroundColor = color;
         if (sticky) sticky.style.backgroundColor = color;
+      } else {
+        // si no hay color, limpiar
+        section.style.backgroundColor = "";
+        if (sticky) sticky.style.backgroundColor = "";
       }
     }
 
-    // En lugar del observer tradicional, usamos scroll para mayor precisión
-    window.addEventListener("scroll", updateByCenter);
-    window.addEventListener("resize", updateByCenter);
+    // guardar referencias y añadir listeners (para poder removerlos luego)
+    handlers.desktopScroll = updateByCenter;
+    handlers.desktopResize = updateByCenter;
+    window.addEventListener("scroll", handlers.desktopScroll);
+    window.addEventListener("resize", handlers.desktopResize);
+
+    // aplicar estado inicial
     updateByCenter();
   }
 
-  function disconnectObserver() {
-    window.removeEventListener("scroll", initObserver);
+  // --- NUEVA FUNCIÓN --- //
+  // Controla el cambio de color en modo móvil
+  function handleScrollMobile() {
+    const pairs = Array.from(document.querySelectorAll(".responsive-pair"));
+    if (pairs.length === 0) return;
+    let center = window.innerHeight / 2;
+    let closest = null;
+    let minDistance = Infinity;
+
+    pairs.forEach(pair => {
+      const rect = pair.getBoundingClientRect();
+      const pairCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(center - pairCenter);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closest = pair;
+      }
+    });
+
+    if (closest) {
+      const img = closest.querySelector(".LargeImage");
+      const color = img?.dataset.color || null;
+      activeColor = color;
+      if (color) section.style.backgroundColor = color;
+      else section.style.backgroundColor = "";
+    }
+  }
+
+  function removeDesktopHandlers() {
+    if (handlers.desktopScroll) {
+      window.removeEventListener("scroll", handlers.desktopScroll);
+      handlers.desktopScroll = null;
+    }
+    if (handlers.desktopResize) {
+      window.removeEventListener("resize", handlers.desktopResize);
+      handlers.desktopResize = null;
+    }
+  }
+
+  function removeMobileHandler() {
+    if (handlers.mobileScroll) {
+      window.removeEventListener("scroll", handlers.mobileScroll);
+      handlers.mobileScroll = null;
+    }
   }
 
   function debounce(fn, wait = 120) {

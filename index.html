@@ -18,13 +18,14 @@
   <!-- ESTILOS CSS -->
   <link rel="stylesheet" href="css/styleC.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer.css">
 
   <!-- ENLACES DE JAVASCRIPT -->
   <script defer src="JS/navbar.js"></script>
-  <script src="JS/footer.js"></script>
-  <script src="JS/scrowInicio.js"></script>
+  <script defer src="JS/footer.js"></script>
+  <script defer src="JS/scrowInicio.js"></script>
   
-  <script src="JS/rsponsiveSeccion.js"></script>
+  <script defer src="JS/rsponsiveSeccion.js"></script>
 </head>
 <body>
   <!-- Imagen-fondo -->
@@ -56,7 +57,7 @@
 
   <!-- Presentacion de historia  -->
   <section id="nosotros" class="row align-items-center g-4">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="card shadow-sm p-4">
       <h3 class="fw-semibold">Nuestra esencia</h3>
       <p class="text-muted">Healthy Treats redefine la repostería saludable, fusionando placer y nutrición en cada creación. 
@@ -72,64 +73,55 @@
       </div>
       </div>
     </div>
-    <div class="col-md-6 text-center">
+    <div class="col-md-4 text-center">
       <img src="imagenes/cheesecakeLV.jpg" width="320" height="100" alt="Postres Healthy Treats" class="img-fluid rounded shadow-sm">
     </div>
   </section>
 
 
 
+<!-- Sección mejorada con cards de igual tamaño y texto alineado y espaciado -->
 <section class="mt-5">
-  <h2 class="fw-bold text-center mb-4">NUESTROS VALORES</h2>
-  <div class="row text-center g-3">
-    <div class="col-md-4">
-      <div class="card card-color1 border-0 shadow-sm p-3">
-        <h5>Salud</h5>
-        <p class="text-muted">Opciones sin lactosa, bajas en azúcar e integrales.</p>
+  <div class="container">
+    <h2 class="fw-bold text-center mb-4">NUESTROS VALORES</h2>
+
+    <div class="row g-3 valores-grid">
+      <div class="col-md-4 d-flex">
+        <div id="Panel1"  class="card card-color1 card-equal text-center border-0 shadow-sm p-4">
+          <h5 class="fw-bold mb-3">Salud</h5>
+          <p class="text-muted mb-0">
+            Opciones sin lactosa, bajas en azúcar e integrales.
+            Postres hechos con ingredientes naturales y harinas alternativas.
+            Variedades veganas y sin gluten, deliciosas y seguras.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card card-color2 border-0 shadow-sm p-3">
-        <h5>Artesanía</h5>
-        <p class="text-muted">Cada pieza recibe atención y tiempo.</p>
+
+      <div class="col-md-4 d-flex">
+        <div id="Panel2" class="card card-color2 card-equal text-center border-0 shadow-sm p-4">
+          <h5 class="fw-bold mb-3">Artesanía</h5>
+          <p class="text-muted mb-0">
+            Cada pieza recibe dedicación y detalle.
+            Elaboración a mano con técnicas tradicionales.
+            Presentaciones únicas que convierten cada postre en una experiencia.
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card card-color3 border-0 shadow-sm p-3">
-        <h5>Comunidad</h5>
-        <p class="text-muted">Formación y trabajo local sostenible.</p>
+
+      <div class="col-md-4 d-flex">
+        <div id="Panel3" class="card card-color3 card-equal text-center border-0 shadow-sm p-4">
+          <h5 class="fw-bold mb-3">Comunidad</h5>
+          <p class="text-muted mb-0">
+            Trabajo con proveedores locales para apoyar la economía regional.
+            Talleres para compartir repostería saludable.
+            Empleos justos y prácticas responsables.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 </main>
-
-<h2 class="fw-bold title-top text-center mb-2 mt-5">NUESTRAS LINEAS</h2>
-<div class="categorias-grid container mt-4">
-  <!-- COLECCIÓN LINEA CLÁSICA -->
-  <a href="html/Catalogo/LineaClasica.html" class="categoria-link">
-    <div class="categoria" style="background-image: url('imagenes/imgclasica.avif');">
-      <h3>Línea Clásica</h3>
-      <button class="btn btn-ver-todo">VER COLECCIÓN</button>
-    </div>
-  </a>
-
-  <!-- COLECCIÓN LINEA VEGANA -->
-  <a href="html/Catalogo/LineaVegana.html" class="categoria-link">
-    <div class="categoria" style="background-image: url('imagenes/imgvegana.jpg');">
-      <h3>Línea Vegana</h3>
-      <button class="btn btn-ver-todo">VER COLECCIÓN</button>
-    </div>
-  </a>
-
-  <!-- COLECCION SIN GLUTÉN -->
-  <a href="html/Catalogo/PostresSinG.html" class="categoria-link">
-    <div class="categoria" style="background-image: url('imagenes/imgsing.jpg');">
-      <h3>Línea Sin Gluten</h3>
-      <button class="btn btn-ver-todo">VER COLECCIÓN</button>
-    </div>
-  </a>
-</div>
 <br>
 <!-- Nuevo spy -->
 <section class="rowLineas">
@@ -154,7 +146,6 @@
       <h2>Línea Clásica</h2>
       <p>Esta línea representa los sabores tradicionales elaborados con ingredientes selectos y técnicas artesanales.</p>
       <h3>¿Qué hace especiales a nuestros postres clásicos?</h3>
-      <p>Combinamos tradición y calidad, ofreciendo postres con sabor auténtico y una textura perfecta.</p>
       <ul>
         <li><b>Ingredientes naturales:</b> mantequilla, harina y cacao de alta calidad.</li>
         <li><b>Recetas caseras:</b> inspiradas en los postres de toda la vida.</li>

@@ -228,16 +228,40 @@ body, html {
   background-color: #6e2d12;
 }
 
-.card-color1{
-  background-color: #AFF8DB;
-}
-.card-color2{
-  background-color: #FFAABB;
-}
-.card-color3{
-  background-color: #AA79AF;
+/* Contenedor de fila: usa flex para alinear columnas en altura iguales */
+.row.equal-height {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+/* Cada columna toma igual altura dentro de la fila flex */
+.row.equal-height > .col-md-4 {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Las cards ocupan toda la altura de la columna y usan flex interno para distribuir contenido */
+.row.equal-height .card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/* Contenido del card: que el párrafo ocupe el espacio restante si es necesario */
+.row.equal-height .card .text-muted {
+  margin-top: auto;
+}
+
+/* Opcional: asegurar tamaño mínimo para móviles */
+@media (max-width: 767.98px) {
+  .row.equal-height {
+    display: block;
+  }
+  .row.equal-height > .col-md-4 {
+    display: block;
+  }
+}
 
 
 #navbar-container {
@@ -268,15 +292,13 @@ main {
 }
 
 #Panel1{
-  margin-top: 40px;
-  background-color: lightskyblue;
+  background-color: #AFF8DB;
 }
 #Panel2{
-  background-color: lightgreen;
+  background-color: #FFAABB;
 }
 #Panel3{
-  background-color: lightpink;
-  margin-bottom: 20px;
+  background-color: #AA79AF;
 }
 
 .site-footer {
@@ -303,7 +325,16 @@ main {
   flex: 1;
 }
 
+/* Centrar imágenes en su columna */
+.col-6.scroll-images {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 20px;
+}
+
 .LargeImage {
+  display: flex;
   width: 100%;
   max-width: 450px;
   height: 520px;
@@ -358,7 +389,7 @@ main {
 /* ===== RESPONSIVO ===== */
 @media (max-width: 1024px) {
   .sticky-text h4 {
-    margin-top: 100px; /* ajusta según la altura de tu navbar */
+    margin-top: 100px;
   }
 }
 
@@ -386,9 +417,12 @@ main {
     margin-bottom: 60px;
   }
 
+  /* Imágenes uniformes en tablet/móvil grande */
   .responsive-pair img {
-    width: 100%;
-    max-width: 600px;
+    width: 85vw !important;
+    max-width: 85vw !important;
+    aspect-ratio: 3/4 !important;
+    height: auto !important;
     border-radius: 12px;
     margin-bottom: 20px;
   }
@@ -400,6 +434,7 @@ main {
     text-align: center;
   }
 }
+
 /* Asegura que en modo móvil los textos se muestren correctamente */
 .texto.mobile {
   position: relative !important;
@@ -414,4 +449,123 @@ main {
   align-items: center;
   padding: 24px 20px;
   margin-bottom: 30px;
+}
+
+/* Tamaño uniforme de imágenes - DESKTOP */
+.rowLineas .LargeImage {
+  width: 100%;
+  max-width: 33vw;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 1rem;
+  margin-bottom: 4vh;
+}
+
+/* Section wrapper para las imágenes */
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Primera imagen un poco más abajo */
+.rowLineas .LargeImage:first-child {
+  margin-top: 5vh;
+}
+
+/* === Ajustes de texto dentro del sticky === */
+.textMod {
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-align: justify;
+  padding: 1rem;
+}
+
+/* Titulares ordenados y con jerarquía visual */
+.textMod h4 {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #5e2d12;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.textMod h2 {
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.textMod h3 {
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: #333;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.textMod p, .textMod li {
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  color: #444;
+}
+
+/* Espaciado interno y orden en listas */
+.textMod ul {
+  padding-left: 1.2rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0;
+}
+
+.textMod li {
+  margin-bottom: 0.4rem;
+  text-align: left;
+}
+
+/* === VERSIÓN RESPONSIVA MOVIL === */
+@media (max-width: 768px) {
+  .rowLineas {
+    padding: 4vh 5vw;
+    background-color: #fff7f7;
+  }
+
+  /* TAMAÑO FIJO Y UNIFORME PARA TODAS LAS IMÁGENES EN MÓVIL */
+  .rowLineas .LargeImage {
+    max-width: 85vw !important;
+    width: 85vw !important;
+    aspect-ratio: 3/4 !important;
+    margin-bottom: 3vh;
+    height: auto !important;
+  }
+
+  .rowLineas .LargeImage:first-child {
+    margin-top: 7vh;
+  }
+
+  .textMod {
+    text-align: left;
+    padding: 1rem 1.2rem;
+    background-color: #fff7f7;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  .textMod h2, .textMod h3, .textMod h4 {
+    text-align: center;
+  }
+
+  .textMod ul {
+    padding-left: 1rem;
+  }
+
+  .textMod li {
+    line-height: 1.4;
+  }
+}
+
+/* === Ajuste adicional para pantallas grandes === */
+@media (min-width: 1600px) {
+  .rowLineas .LargeImage {
+    max-width: 28vw;
+  }
 }
