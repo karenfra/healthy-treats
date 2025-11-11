@@ -42,10 +42,27 @@
 }
 
 /* FILTROS */
+.filtros {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .filtros select, .filtros input {
-  border-radius: 25px;
+  border-radius: 15px;
   border: 1px solid #D4AF37;
-  padding: 5px 10px;
+  padding: 6px 12px;
+  width: 220px; /* 🔹 Aumenta el ancho (antes 150px) */
+  max-width: 280px; /* 🔹 Límite superior para pantallas grandes */
+}
+
+/* 🔹 En pantallas pequeñas (responsive) */
+@media (max-width: 576px) {
+  .filtros select,
+  .filtros input {
+    width: 100%; /* Ocupan todo el ancho en móviles */
+  }
 }
 
 /* MODAL PAGO */
@@ -103,9 +120,82 @@
   align-items: center;
 }
 
+/* CONTADOR DEL CARRITO */
+.contador-carrito {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.3em 0.5em;
+  border: 2px solid #fff;
+  display: none; /* Oculto hasta que haya productos */
+  z-index: 100;
+}
+
+.notificacion {
+  position: fixed;
+  bottom: 20px;
+  right: 110px;
+  background-color: #e8b72f;
+  color: #433004;
+  padding: 10px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2000;
+}
+.notificacion.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 992px) {
   .contenedor-catalogo {
     row-gap: 20px;
+  }
+}
+
+/* MODAL PAGO */
+#modal-pago input {
+  border-radius: 10px;
+}
+
+#modal-pago .form-check-label {
+  font-size: 0.9rem;
+}
+
+#modal-pago .btn-success {
+  background-color: #7b3c1a;
+  border: none;
+}
+
+#modal-pago .btn-success:hover {
+  background-color: #9c4b22;
+}
+
+/* RESPONSIVE - MODAL PAGO */
+/* 🔹 Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  #modal-pago .modal-dialog {
+    margin: 0 10px; /* Evita que se pegue a los bordes */
+  }
+
+  #modal-pago .modal-body {
+    padding: 1rem;
+  }
+
+  #modal-pago .form-label {
+    font-size: 0.9rem;
+  }
+
+  #modal-pago input {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+
+  #modal-pago .btn-success {
+    font-size: 1rem;
+    padding: 12px;
   }
 }
