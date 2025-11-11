@@ -83,7 +83,7 @@
         flex-wrap: wrap;      /* permite que los items bajen si no caben */
     }
 
-    .nav-item.mx-2 {
+    .nav-item.mx-4 {
         margin-left: 0.5rem !important;  /* reduce margen horizontal */
         margin-right: 0.5rem !important;
     }
