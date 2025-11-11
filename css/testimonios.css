@@ -9,54 +9,6 @@ body {
   font-weight: bold;
 }
 
-header {
-  background-color: #C89656;
-  color: white;
-  padding: 100px 0 60px 0;
-  text-align: center;
-  margin-top: 56px;
-}
-
-header .titulo-testimonios {
-  font-weight: 800;        /* Negrita extra */
-  font-size: 3rem;         /* Tamaño grande */
-  letter-spacing: 1px;     /* Espacio entre letras */
-  display: flex;           /* Para alinear icono y texto */
-  align-items: center;     /* Centra verticalmente el icono con el texto */
-  justify-content: center;
-  gap: 0.5rem;             /* Espacio entre icono y texto (alternativa a me-2) */
-}
-
-header .titulo-testimonios i {
-  color: #ffffff;          /* Color del icono (opcional) */
-  font-size: 1.5em;        /* Tamaño del icono */
-  text-align: center;
-}
-
-header .descripcion-testimonios .resaltado {
-  font-weight: bold;
-}
-
-header .descripcion-testimonios .marca {
-  font-weight: bold;
-  font-style: italic;
-}
-
-/* RESPONSIVE TITULO */
-@media (max-width: 768px) {
-  header {
-    padding: 60px 20px 40px 20px;  /* menos espacio en móviles */
-  }
-
-  header .titulo-testimonios {
-    font-size: 2rem;  /* tamaño más pequeño para móviles */
-    gap: 0.3rem;      /* menos espacio entre icono y texto */
-  }
-
-  header .titulo-testimonios i {
-    font-size: 1.2em; /* icono más pequeño */
-  }
-}
 /* --- Carrusel estilo foco central --- */
 .carousel-item {
   transition: transform 0.6s ease-in-out;
