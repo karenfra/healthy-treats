@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ==========================
-  //  SECCIÓN DE CALIFICACIÓN
+  // 🔹 CALIFICACIÓN CON ESTRELLAS
   // ==========================
   const stars = document.querySelectorAll("#starRating .star");
   const ratingInput = document.getElementById("rating");
   let rating = 0;
 
-  // Función para pintar las estrellas según el puntaje actual
   function paintStars(value) {
     stars.forEach((star, index) => {
       const starValue = index + 1;
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Hover: muestra visualmente la puntuación antes de seleccionar
   stars.forEach((star, index) => {
     star.addEventListener("mousemove", (e) => {
       const rect = star.getBoundingClientRect();
@@ -31,12 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
       paintStars(tempRating);
     });
 
-    // Restablece la vista cuando el puntero sale
     star.addEventListener("mouseleave", () => {
       paintStars(rating);
     });
 
-    // Al hacer clic, se guarda la puntuación final
     star.addEventListener("click", (e) => {
       const rect = star.getBoundingClientRect();
       const isHalf = e.clientX - rect.left < rect.width / 2;
@@ -47,95 +43,141 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================
-  //  VALIDACIÓN DEL FORMULARIO
+  // 🔹 FORMULARIO Y VALIDACIÓN
   // ==========================
-  const form = document.getElementById("testimonioForm");
+  const form = document.getElementById("formTestimonio");
   const nombreInput = document.getElementById("nombre");
+  const apellidosInput = document.getElementById("apellidos");
   const opinionInput = document.getElementById("opinion");
-  const testimonioCarousel = document.querySelector(".testimonios-carousel");
+  const fotoInput = document.getElementById("foto");
+  const carouselInner = document.querySelector(".carousel-inner");
+  const carousel = document.querySelector("#carouselExample");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Validar nombre
-    const nombre = nombreInput.value.trim();
-    if (!nombre) {
-      alert("Por favor, ingrese su nombre.");
+    if (!nombreInput.value.trim() || !apellidosInput.value.trim()) {
+      alert("Por favor, ingresa tu nombre completo.");
       return;
     }
-
-    // Validar opinión
-    const opinion = opinionInput.value.trim();
-    if (!opinion) {
-      alert("Por favor, escriba su opinión.");
+    if (!opinionInput.value.trim()) {
+      alert("Por favor, escribe tu opinión.");
       return;
     }
-
-    // Validar rating
     if (rating === 0) {
-      alert("Por favor, seleccione una calificación.");
+      alert("Por favor, selecciona tu calificación.");
+      return;
+    }
+    if (!fotoInput.files[0]) {
+      alert("Por favor, selecciona una foto.");
       return;
     }
 
-    // Crear objeto de testimonio
-    const nuevoTestimonio = {
-      nombre,
-      opinion,
-      rating,
-      fecha: new Date().toLocaleDateString(),
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const imageUrl = event.target.result;
+
+      const nuevoTestimonio = {
+        nombre: `${nombreInput.value.trim()} ${apellidosInput.value.trim()}`,
+        opinion: opinionInput.value.trim(),
+        rating,
+        foto: imageUrl,
+        fecha: new Date().toLocaleDateString()
+      };
+
+      const testimoniosGuardados = JSON.parse(localStorage.getItem("testimonios")) || [];
+      testimoniosGuardados.unshift(nuevoTestimonio);
+      localStorage.setItem("testimonios", JSON.stringify(testimoniosGuardados));
+
+      agregarTestimonioAlCarrusel(nuevoTestimonio, true);
+
+      // ✅ Mostrar mensaje "Cargando..."
+      const overlay = document.createElement("div");
+      overlay.style.position = "fixed";
+      overlay.style.top = "0";
+      overlay.style.left = "0";
+      overlay.style.width = "100%";
+      overlay.style.height = "100%";
+      overlay.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+      overlay.style.display = "flex";
+      overlay.style.flexDirection = "column";
+      overlay.style.justifyContent = "center";
+      overlay.style.alignItems = "center";
+      overlay.style.fontFamily = "Poppins, sans-serif";
+      overlay.style.fontSize = "1.2rem";
+      overlay.style.color = "#6B2E1D";
+      overlay.style.zIndex = "9999";
+      overlay.innerHTML = `
+        <div class="spinner-border text-secondary mb-3" role="status"></div>
+        <p>Procesando tu testimonio...</p>
+      `;
+      document.body.appendChild(overlay);
+
+      form.reset();
+      rating = 0;
+      paintStars(0);
+
+      // ✅ Redirección a gracias.html
+      setTimeout(() => {
+        window.location.href = "gracias.html";
+      }, 1500);
     };
 
-    // Guardar en localStorage
-    const testimoniosGuardados = JSON.parse(localStorage.getItem("testimonios")) || [];
-    testimoniosGuardados.push(nuevoTestimonio);
-    localStorage.setItem("testimonios", JSON.stringify(testimoniosGuardados));
-
-    // Mostrar agradecimiento
-    alert("¡Gracias por compartir tu opinión! 🧁");
-
-    // Limpiar el formulario
-    form.reset();
-    rating = 0;
-    paintStars(0);
-
-    // Reconstruir carrusel
-    renderTestimonios();
+    reader.readAsDataURL(fotoInput.files[0]);
   });
 
   // ==========================
-  // CARGAR TESTIMONIOS
+  // 🔹 CARGAR TESTIMONIOS GUARDADOS
   // ==========================
   function renderTestimonios() {
     const testimoniosGuardados = JSON.parse(localStorage.getItem("testimonios")) || [];
-    testimonioCarousel.innerHTML = "";
-
-    if (testimoniosGuardados.length === 0) {
-      testimonioCarousel.innerHTML = "<p>No hay testimonios aún. ¡Sé el primero en dejar el tuyo!</p>";
-      return;
-    }
-
-    testimoniosGuardados.forEach((t) => {
-      const item = document.createElement("div");
-      item.classList.add("testimonio-item");
-
-      // Crear las estrellas visuales
-      const starsHTML = Array.from({ length: 5 }, (_, i) => {
-        if (t.rating >= i + 1) return "★";
-        else if (t.rating >= i + 0.5) return "☆";
-        else return "☆";
-      }).join("");
-
-      item.innerHTML = `
-        <div class="testimonio-rating">${starsHTML}</div>
-        <p class="testimonio-opinion">"${t.opinion}"</p>
-        <h4 class="testimonio-nombre">– ${t.nombre}</h4>
-        <span class="testimonio-fecha">${t.fecha}</span>
-      `;
-
-      testimonioCarousel.appendChild(item);
-    });
+    testimoniosGuardados.forEach((t, index) => agregarTestimonioAlCarrusel(t, index === 0));
   }
 
-  // Cargar los testimonios al iniciar
+  // ==========================
+  // 🔹 FUNCIÓN PARA AGREGAR AL CARRUSEL
+  // ==========================
+  function agregarTestimonioAlCarrusel(t, esPrimero = false) {
+    const item = document.createElement("div");
+    item.classList.add("carousel-item");
+    if (esPrimero) item.classList.add("active");
+
+    let starsHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      if (t.rating >= i) starsHTML += '<i class="bi bi-star-fill"></i>';
+      else if (t.rating >= i - 0.5) starsHTML += '<i class="bi bi-star-half"></i>';
+      else starsHTML += '<i class="bi bi-star"></i>';
+    }
+
+    item.innerHTML = `
+      <div class="testimonial-card">
+        <img src="${t.foto}" alt="${t.nombre}">
+        <div class="testimonial-content">
+          <h5>${t.nombre}</h5>
+          <p>"${t.opinion}"</p>
+          <div class="rating">${starsHTML}</div>
+        </div>
+      </div>
+    `;
+
+    carouselInner.insertBefore(item, carouselInner.firstChild);
+
+    const items = carouselInner.querySelectorAll(".carousel-item");
+    items.forEach((el, idx) => el.classList.toggle("active", idx === 0));
+  }
+
+  // ==========================
+  // 🔹 CARRUSEL AUTOMÁTICO + PAUSA AL HOVER
+  // ==========================
+  const bootstrapCarousel = new bootstrap.Carousel(carousel, {
+    interval: 5000,
+    ride: "carousel",
+    pause: false,
+    wrap: true
+  });
+
+  carousel.addEventListener("mouseenter", () => bootstrapCarousel.pause());
+  carousel.addEventListener("mouseleave", () => bootstrapCarousel.cycle());
+
   renderTestimonios();
 });

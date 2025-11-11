@@ -102,6 +102,9 @@ header {
   user-select: none;
 }
 
+.star.filled::before {
+  color: #ffc107;
+}
 .star {
   color: #ddd;
   position: relative;
