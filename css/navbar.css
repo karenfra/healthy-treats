@@ -10,6 +10,17 @@
   border-radius: 50%;
 }
 
+.navbar-nav .nav-link {
+  color: #f0e4d7 !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.dropdown-item:hover {
+  color: #ffd19a !important;
+  background-color: #8b3f10 !important;
+}
+
 .sub-navbar {
   display: none;
   position: absolute;
