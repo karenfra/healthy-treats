@@ -130,6 +130,24 @@
   z-index: 100;
 }
 
+.notificacion {
+  position: fixed;
+  bottom: 20px;
+  right: 110px;
+  background-color: #e8b72f;
+  color: #433004;
+  padding: 10px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 2000;
+}
+.notificacion.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 /* RESPONSIVE */
 @media (max-width: 992px) {
