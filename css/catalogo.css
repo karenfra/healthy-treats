@@ -155,3 +155,47 @@
     row-gap: 20px;
   }
 }
+
+/* MODAL PAGO */
+#modal-pago input {
+  border-radius: 10px;
+}
+
+#modal-pago .form-check-label {
+  font-size: 0.9rem;
+}
+
+#modal-pago .btn-success {
+  background-color: #7b3c1a;
+  border: none;
+}
+
+#modal-pago .btn-success:hover {
+  background-color: #9c4b22;
+}
+
+/* RESPONSIVE - MODAL PAGO */
+/* 🔹 Ajustes para pantallas pequeñas */
+@media (max-width: 576px) {
+  #modal-pago .modal-dialog {
+    margin: 0 10px; /* Evita que se pegue a los bordes */
+  }
+
+  #modal-pago .modal-body {
+    padding: 1rem;
+  }
+
+  #modal-pago .form-label {
+    font-size: 0.9rem;
+  }
+
+  #modal-pago input {
+    font-size: 0.95rem;
+    padding: 8px 10px;
+  }
+
+  #modal-pago .btn-success {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

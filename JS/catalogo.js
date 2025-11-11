@@ -176,6 +176,82 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.reset();
   });
 
+  // 🔹 Funcionalidad extra del formulario de pago
+const numeroTarjeta = document.getElementById("numero-tarjeta");
+const fechaExp = document.getElementById("fecha-exp");
+const cvc = document.getElementById("cvc");
+const nombreTarjeta = document.getElementById("nombre-tarjeta");
+const recordarDatos = document.getElementById("recordar-datos");
+
+// 🟡 Formatear número de tarjeta (agrupa cada 4 dígitos)
+numeroTarjeta.addEventListener("input", e => {
+  let valor = e.target.value.replace(/\D/g, ""); // solo números
+  valor = valor.replace(/(.{4})/g, "$1 ").trim(); // separa cada 4
+  e.target.value = valor;
+});
+
+// 🟡 Formatear fecha de vencimiento MM/AA
+fechaExp.addEventListener("input", e => {
+  let valor = e.target.value.replace(/\D/g, "");
+  if (valor.length >= 3) valor = valor.slice(0, 2) + "/" + valor.slice(2, 4);
+  e.target.value = valor;
+});
+
+// 🟡 Cargar datos si están guardados
+window.addEventListener("DOMContentLoaded", () => {
+  const guardados = JSON.parse(localStorage.getItem("datosPago"));
+  if (guardados) {
+    nombreTarjeta.value = guardados.nombre;
+    numeroTarjeta.value = guardados.numero;
+    fechaExp.value = guardados.fecha;
+    cvc.value = guardados.cvc;
+    recordarDatos.checked = true;
+  }
+});
+
+// 🟡 Guardar datos si se selecciona “Recordar”
+document.getElementById("form-pago").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const numeroSinEspacios = numeroTarjeta.value.replace(/\s/g, "");
+
+  if (numeroSinEspacios.length < 16 || !/^\d+$/.test(numeroSinEspacios)) {
+    alert("Por favor, ingresa un número de tarjeta válido de 16 dígitos.");
+    return;
+  }
+
+  if (!/^\d{2}\/\d{2}$/.test(fechaExp.value)) {
+    alert("Formato de fecha inválido. Usa MM/AA.");
+    return;
+  }
+
+  if (!/^\d{3}$/.test(cvc.value)) {
+    alert("El CVC debe tener 3 dígitos.");
+    return;
+  }
+
+  if (recordarDatos.checked) {
+    localStorage.setItem(
+      "datosPago",
+      JSON.stringify({
+        nombre: nombreTarjeta.value,
+        numero: numeroTarjeta.value,
+        fecha: fechaExp.value,
+        cvc: cvc.value,
+      })
+    );
+  } else {
+    localStorage.removeItem("datosPago");
+  }
+
+  alert("✅ Pago realizado con éxito.");
+  carrito = [];
+  actualizarCarrito();
+  modalPago.hide();
+  e.target.reset();
+});
+
+
   // 🔹 Cargar filtros dinámicamente
   function cargarFiltros(lista) {
     const lineas = [...new Set(lista.map(p => p.linea))];
